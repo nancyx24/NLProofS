@@ -16,7 +16,7 @@ model:
   max_num_steps: 30
   lr: 2e-4
   warmup_steps: 800
-  model_name: t5-large
+  model_name: t5-small
   num_beams: 10
   topk: 10
   verifier_ckpt: null

@@ -42,9 +42,9 @@ def read_entailmentbank_proofs(path: str, is_train: bool) -> List[Example]:
     print(f"{len(data)} proofs loaded. {num_invalid} invalid ones removed.")
     return data
 
-def read_gsm8k_proofs(path: str, is_train: bool) -> List[Example]:
+def read_gsm8k_proofs(path: str, is_train: bool, dataset: str) -> List[Example]:
     """
-    Load the gsm8k dataset in STREET.
+    Load the STREET data sets. Dataset parameter "gsm8k" or "scone".
     """
     data = []
     
@@ -57,7 +57,11 @@ def read_gsm8k_proofs(path: str, is_train: bool) -> List[Example]:
         linearized_output = ex['linearized_output']
         proof_text = normalize(linearized_output)
         # equivalent to hypothesis for Entailment Bank
-        hypothesis = normalize('The answer is ' + str(ex['answer']))
+        if dataset == 'gsm8k':
+            hypothesis = normalize('The answer is ' + str(ex['answer']))
+        else:
+            hypothesis = normalize(ex['answer'])
+
         try:
             proof = Proof(
                 context,
@@ -178,6 +182,8 @@ class EntireProofsDataset(Dataset):  # type: ignore
         self.is_train = is_train
         if dataset == "entailmentbank":
             self.data = read_entailmentbank_proofs(path, is_train)
+        elif dataset == 'gsm8k' or 'scone':
+            self.data = read_street_proofs(path, is_train, dataset)
         else:
             assert dataset == "ruletaker"
             self.data = read_ruletaker_proofs(path, is_train)

@@ -1,4 +1,4 @@
-from ..common import *
+from common import *
 from ..verifier.model import EntailmentClassifier
 from ..prover.proof import ProofStep, Proof, InvalidProofStep
 from ..prover.search import ProofGraph

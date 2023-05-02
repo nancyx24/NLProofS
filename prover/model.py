@@ -1,7 +1,7 @@
-from common import *
-from verifier.model import EntailmentClassifier
-from prover.proof import ProofStep, Proof, InvalidProofStep
-from prover.search import ProofGraph
+from ..common import *
+from ..verifier.model import EntailmentClassifier
+from ..prover.proof import ProofStep, Proof, InvalidProofStep
+from ..prover.search import ProofGraph
 import numpy as np
 import os
 import json

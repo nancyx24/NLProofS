@@ -1,7 +1,7 @@
-from common import *
+from ..common import *
 from pytorch_lightning.utilities.cli import LightningCLI
-from datamodule import ProofDataModule
-from model import EntailmentWriter
+from ..prover.datamodule import ProofDataModule
+from ..prover.model import EntailmentWriter
 
 
 class CLI(LightningCLI):

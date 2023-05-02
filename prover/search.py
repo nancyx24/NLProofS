@@ -1,8 +1,8 @@
 """
 Proof graph for proof search.
 """
-from common import *
-from prover.proof import ProofStep
+from ..common import *
+from ..prover.proof import ProofStep
 import networkx as nx
 
 

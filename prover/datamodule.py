@@ -42,11 +42,12 @@ def read_entailmentbank_proofs(path: str, is_train: bool) -> List[Example]:
     print(f"{len(data)} proofs loaded. {num_invalid} invalid ones removed.")
     return data
 
-def read_gsm8k_proofs(path: str, is_train: bool, dataset: str) -> List[Example]:
+def read_street_proofs(path: str, is_train: bool, dataset: str) -> List[Example]:
     """
     Load the STREET data sets. Dataset parameter "gsm8k" or "scone".
     """
     data = []
+    num_invalid = 0
     
     for line in open(path):
         ex = json.loads(line)

@@ -3,7 +3,7 @@ Dataloading for EntailmentBank and RuleTaker.
 """
 from copy import deepcopy
 from common import *
-from prover.proof import Proof, InvalidProofStep
+from proof import Proof, InvalidProofStep
 import random
 import json
 import itertools

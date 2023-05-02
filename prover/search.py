@@ -1,8 +1,10 @@
 """
 Proof graph for proof search.
 """
-from ..common import *
-from ..prover.proof import ProofStep
+import sys
+sys.path.append('../')
+from common import *
+from prover.proof import ProofStep
 import networkx as nx
 
 

@@ -1,4 +1,6 @@
-from ..common import *
+import sys
+sys.path.append('../')
+from common import *
 from pytorch_lightning.utilities.cli import LightningCLI
 from datamodule import ProofDataModule
 from model import EntailmentWriter

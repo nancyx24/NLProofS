@@ -136,4 +136,5 @@ dmypy.json
 /prover/prover_weights.ckpt
 /verifier/verifier_weights.ckpt
 /prover/output.txt
+/verifier/output.txt
 /verifier/verifier.txt

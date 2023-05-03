@@ -399,7 +399,7 @@ class ProofDataModule(pl.LightningDataModule):
         subtree_proved_all_or_none: bool,
     ) -> None:
         super().__init__()
-        assert dataset in ("entailmentbank", "ruletaker")
+        assert dataset in ("entailmentbank", "ruletaker", "gsm8k", "scone")
         self.dataset = dataset
         self.stepwise = stepwise
         self.sample_goal = sample_goal

@@ -133,3 +133,7 @@ dmypy.json
 .pyre/
 
 .DS_Store
+/prover/prover_weights.ckpt
+/verifier/verifier_weights.ckpt
+/prover/output.txt
+/verifier/verifier.txt

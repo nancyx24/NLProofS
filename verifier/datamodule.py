@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 from common import *
 from copy import deepcopy
 import itertools

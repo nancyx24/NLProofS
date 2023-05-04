@@ -109,12 +109,14 @@ class EntailmentWriter(pl.LightningModule):
         model_name: str,
         lr: float,
         warmup_steps: int,
+        diversity_penalty: int,
         num_beam_groups: int,
         num_beams: int,
         topk: int,
         max_input_len: int,
         proof_search: bool,
         verifier_weight: float,
+        log_name: str = "",
         verifier_ckpt: Optional[str] = None,
         oracle_prover: Optional[bool] = False,
         oracle_verifier: Optional[bool] = False,
@@ -133,6 +135,9 @@ class EntailmentWriter(pl.LightningModule):
         self.proof_search = proof_search
         self.oracle_prover = oracle_prover
         self.oracle_verifier = oracle_verifier
+        self.diversity_penalty = diversity_penalty
+        self.diversity_penalty /= 10.0
+        self.log_name = log_name
         if stepwise and verifier_weight > 0:
             assert verifier_weight <= 1.0
             assert verifier_ckpt is not None
@@ -168,7 +173,10 @@ class EntailmentWriter(pl.LightningModule):
 
     def on_train_start(self) -> None:
         self.move_verifier_to_device()
+        
         if self.logger is not None:
+            if self.log_name != "":
+                self.logger.name = self.log_name
             self.logger.log_hyperparams(self.hparams)  # type: ignore
             assert self.trainer is not None
             print(f"Logging to {self.trainer.log_dir}")
@@ -200,6 +208,7 @@ class EntailmentWriter(pl.LightningModule):
             num_beams=self.num_beams,
             num_beam_groups=self.num_beam_groups,
             num_return_sequences=1,
+            diversity_penalty=self.diversity_penalty,
             early_stopping=True,
             output_scores=True,
             return_dict_in_generate=True,
@@ -238,6 +247,7 @@ class EntailmentWriter(pl.LightningModule):
         """
         Generate a single proof step with text-to-text transformers.
         """
+        
         input = self.tokenizer(
             input_text,
             padding="longest",
@@ -251,6 +261,8 @@ class EntailmentWriter(pl.LightningModule):
             attention_mask=input.attention_mask.to(self.device, non_blocking=True),
             max_length=self.trainer.datamodule.max_output_len,  # type: ignore
             num_beams=self.num_beams,
+            num_beam_groups=self.num_beam_groups,
+            diversity_penalty=self.diversity_penalty,
             num_return_sequences=self.topk,
             early_stopping=True,
             output_scores=True,

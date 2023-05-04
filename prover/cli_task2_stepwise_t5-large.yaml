@@ -11,6 +11,9 @@ trainer:
       init_args: 
         logging_interval: step
 model:
+  log_name: ""
+  diversity_penalty: 0
+  num_beam_groups: 1
   stepwise: true
   max_num_steps: 20
   lr: 5e-5

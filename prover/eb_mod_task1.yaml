@@ -12,8 +12,6 @@ trainer:
         logging_interval: step
 model:
   stepwise: true
-  log_name: ""
-  diversity_penalty: 0
   max_num_steps: 20
   lr: 0.0001
   warmup_steps: 1000
@@ -35,6 +33,6 @@ data:
   num_workers: 2
   max_input_len: 1024
   max_output_len: 64
-  path_train: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/train.jsonl
-  path_val: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/dev.jsonl
-  path_test: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/test.jsonl
+  path_train: ../data/train_task_1.jsonl
+  path_val: ../data/dev_task_1.jsonl
+  path_test: ../data/test_task_1.jsonl

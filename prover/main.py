@@ -12,6 +12,8 @@ class CLI(LightningCLI):
         parser.link_arguments("model.stepwise", "data.stepwise")
         parser.link_arguments("data.dataset", "model.dataset")
         parser.link_arguments("data.max_input_len", "model.max_input_len")
+        parser.add_argument("--log_name", type=str, default="", help="log file name")
+        parser.link_arguments("log_name", "model.log_name")
 
 
 def main() -> None:

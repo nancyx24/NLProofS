@@ -17,6 +17,7 @@ class EntailmentClassifier(pl.LightningModule):
         warmup_steps: int,
         pos_weight: float,
         max_input_len: int,
+        log_name: str = "",
     ) -> None:
         super().__init__()
         self.save_hyperparameters()
@@ -62,6 +63,8 @@ class EntailmentClassifier(pl.LightningModule):
 
     def on_train_start(self) -> None:
         if self.logger is not None:
+            if self.log_name != "":
+                self.logger.name = self.log_name
             self.logger.log_hyperparams(self.hparams)  # type: ignore
             assert self.trainer is not None
             print(f"Logging to {self.trainer.log_dir}")

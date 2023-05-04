@@ -12,6 +12,7 @@ trainer:
       init_args: 
         logging_interval: step
 model:
+  log_name: ""
   stepwise: true
   max_num_steps: 30
   lr: 1e-4

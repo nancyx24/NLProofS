@@ -233,7 +233,7 @@ class GMS8KDataset(EntailmentDataset):
 
     def extract_examples(
         self, ex: Example, context: OrderedDict[str, str]
-    ) -> Tuple[List[Example], List[Example]]
+    ) -> Tuple[List[Example], List[Example]]:
         """
         Extract positive and negative examples from a proof tree.
         """

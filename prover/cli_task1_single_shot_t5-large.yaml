@@ -8,7 +8,7 @@ trainer:
   check_val_every_n_epoch: 5
   callbacks:
     - class_path: pytorch_lightning.callbacks.LearningRateMonitor
-      init_args: 
+      init_args:
         logging_interval: step
 model:
   stepwise: false
@@ -17,6 +17,7 @@ model:
   warmup_steps: 500
   model_name: t5-large
   num_beams: 10
+  num_beam_groups: 1
   topk: 10
   verifier_ckpt: null
   verifier_weight: 0.0

@@ -127,6 +127,7 @@ class EntailmentWriter(pl.LightningModule):
         self.lr = lr
         self.warmup_steps = warmup_steps
         self.num_beams = num_beams
+        self.num_beam_groups = num_beam_groups
         self.topk = topk
         self.verifier_weight = verifier_weight
         self.proof_search = proof_search

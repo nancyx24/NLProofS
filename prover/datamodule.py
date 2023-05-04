@@ -42,6 +42,43 @@ def read_entailmentbank_proofs(path: str, is_train: bool) -> List[Example]:
     print(f"{len(data)} proofs loaded. {num_invalid} invalid ones removed.")
     return data
 
+def read_street_proofs(path: str, is_train: bool, dataset: str) -> List[Example]:
+    """
+    Load the STREET data sets. Dataset parameter "gsm8k" or "scone".
+    """
+    data = []
+    num_invalid = 0
+    
+    for line in open(path):
+        ex = json.loads(line)
+        # equivalent to context for Entailment Bank
+        linearized_input = ex['linearized_input']
+        context = extract_context(linearized_input)
+        # equivalent to proof_text for Entailment Bank
+        linearized_output = ex['linearized_output']
+        proof_text = normalize(linearized_output)
+        # equivalent to hypothesis for Entailment Bank
+        if dataset == 'gsm8k':
+            hypothesis = normalize('The answer is ' + str(ex['answer']))
+        else:
+            hypothesis = normalize(ex['answer'])
+
+        try:
+            proof = Proof(
+                context,
+                hypothesis,
+                proof_text,
+                strict=is_train,
+                requires_complete=is_train,
+            )
+            data.append({"proof": proof})
+        except InvalidProofStep:
+            assert is_train
+            num_invalid += 1
+
+    print(f"{len(data)} proofs loaded. {num_invalid} invalid ones removed.")
+
+    return data
 
 def read_ruletaker_proofs(path: str, is_train: bool) -> List[Example]:
     """
@@ -146,6 +183,8 @@ class EntireProofsDataset(Dataset):  # type: ignore
         self.is_train = is_train
         if dataset == "entailmentbank":
             self.data = read_entailmentbank_proofs(path, is_train)
+        elif dataset == 'gsm8k' or 'scone':
+            self.data = read_street_proofs(path, is_train, dataset)
         else:
             assert dataset == "ruletaker"
             self.data = read_ruletaker_proofs(path, is_train)
@@ -360,7 +399,7 @@ class ProofDataModule(pl.LightningDataModule):
         subtree_proved_all_or_none: bool,
     ) -> None:
         super().__init__()
-        assert dataset in ("entailmentbank", "ruletaker")
+        assert dataset in ("entailmentbank", "ruletaker", "gsm8k", "scone")
         self.dataset = dataset
         self.stepwise = stepwise
         self.sample_goal = sample_goal

@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 from common import *
 from copy import deepcopy
 import itertools
@@ -10,6 +12,7 @@ from torch.utils.data import Dataset, DataLoader
 import pytorch_lightning as pl
 from transformers import AutoTokenizer
 from rank_bm25 import BM25Okapi
+import re
 
 
 def sample_similar_sentence(query: str, corpus: List[str]) -> str:
@@ -206,6 +209,114 @@ class EntailmentBankDataset(EntailmentDataset):
         return positives, negatives
 
 
+class GMS8KDataset(EntailmentDataset):
+    def preprocess(self, path: str) -> List[Example]:
+        """
+        Extract positive and negative examples from ground truth proof trees.
+        """
+
+        data = []
+        num_pos = 0
+        num_neg = 0
+
+        for line in open(path):
+            ex = json.loads(line)
+            pos, neg = self.extract_examples(ex)
+            data.extend(pos)
+            data.extend(neg)
+        
+        data = list(set(data))
+        random.shuffle(data)
+        print(f"#positives: {num_pos}\n#pseudo-negatives: {num_neg}")
+
+        return data
+
+    def extract_examples(
+        self, ex: Example, context: OrderedDict[str, str]
+    ) -> Tuple[List[Example], List[Example]]
+        """
+        Extract positive and negative examples from a proof tree.
+        """
+        linearized_input = ex['linearized_input']
+        context = extract_context(linearized_input)
+        hypothesis = 'The answer is ' + str(ex['answer'])
+        proof_text = ex['linearized_output']
+        proof_text = re.sub(r'int.: ' + hypothesis, 'hypothesis', proof_text)
+
+        tree = deserialize(hypothesis, context, proof_text)
+
+        if tree == None:
+            continue
+        
+        def create_positive(premises: List[str], conclusion: str) -> None:
+            assert len(premises) >= 2
+            positives.append(
+                {"premises": premises, "conclusion": conclusion, "label": True}
+            )
+
+        def create_negative(premises: List[str], conclusion: str) -> None:
+            assert len(premises) >= 2
+            negatives.append(
+                {"premises": premises, "conclusion": conclusion, "label": False}
+            )
+
+        for node in tree.traverse():
+            if node.is_leaf():
+                continue
+        
+        if split != "train":
+            premises = [child.sent for child in node.children]
+            if len(premises) >= 2:
+                create_positive(premises, node.sent)
+
+        else:
+            # 1. Enumerate all combinations of premises leading to node.sent.
+            for premise_nodes in enumerate_premise_nodes(
+                node, max_num_premises
+            ):
+                premises = [pn.sent for pn in premise_nodes]
+                num_premises = len(premises)
+                if num_premises >= 2:
+                    create_positive(premises, node.sent)
+
+                    # 2. Perturbe them to generate negatives.
+                    for i, p in enumerate(premises):
+                        if irrelevant_distractors_only:
+                            candidates = [
+                                sent
+                                for sent in context.values()
+                                if sent not in premises
+                            ]
+                        else:
+                            candidates = [
+                                sent for sent in context.values() if sent != p
+                            ]
+
+                        # also a problem for entailment bank??
+                        if len(candidates) == 0:
+                            continue
+                        
+                        alternative = sample_similar_sentence(p, candidates)
+                        prems = deepcopy(premises)
+                        prems[i] = alternative
+                        create_negative(prems, node.sent)
+
+                    if num_premises > 2:
+                        for subset in powerset(premises):
+                            if 2 <= len(subset) < num_premises:
+                                create_negative(list(subset), node.sent)
+
+        if split == "train":
+            # Copy premises.
+            leaf_sents = [node.sent for node in tree.get_leaves()]
+            for s1 in leaf_sents:
+                for s2 in leaf_sents:
+                    if s1 == s2:
+                        continue
+                    create_negative([s1, s2], s1)
+        
+        return positives, negatives
+
 class RuleTakerDataset(EntailmentDataset):
     def preprocess(self, path: str) -> List[Example]:
         """
@@ -319,6 +430,8 @@ class EntailmentDataModule(pl.LightningDataModule):
         super().__init__()
         if dataset == "entailmentbank":
             self.Dataset = EntailmentBankDataset
+        elif dataset == 'gsm8k':
+            self.Dataset = GMS8KDataset
         elif dataset == "ruletaker":
             self.Dataset = RuleTakerDataset  # type: ignore
         else:

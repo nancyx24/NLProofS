@@ -109,6 +109,7 @@ class EntailmentWriter(pl.LightningModule):
         model_name: str,
         lr: float,
         warmup_steps: int,
+        num_beam_groups: int,
         num_beams: int,
         topk: int,
         max_input_len: int,
@@ -196,6 +197,7 @@ class EntailmentWriter(pl.LightningModule):
             attention_mask=input.attention_mask.to(self.device, non_blocking=True),
             max_length=self.trainer.datamodule.max_output_len,  # type: ignore
             num_beams=self.num_beams,
+            num_beam_groups=self.num_beam_groups,
             num_return_sequences=1,
             early_stopping=True,
             output_scores=True,

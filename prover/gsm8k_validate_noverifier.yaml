@@ -35,6 +35,6 @@ data:
   num_workers: 2
   max_input_len: 1024
   max_output_len: 64
-  path_train: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/train.jsonl
-  path_val: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/dev.jsonl
-  path_test: ../data/entailment_trees_emnlp2021_data_v3/dataset/task_1/test.jsonl
+  path_train: ../data/train_gsm8k.jsonl
+  path_val: ../data/dev_gsm8k.jsonl
+  path_test: ../data/test_gsm8k.jsonl

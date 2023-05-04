@@ -23,6 +23,8 @@ def read_entailmentbank_proofs(path: str, is_train: bool) -> List[Example]:
 
     for line in open(path):
         ex = json.loads(line)
+        print('examples')
+        print(ex)
         hypothesis = normalize(ex["hypothesis"])
         context = extract_context(ex["context"])
         proof_text = normalize(ex["proof"].strip())
@@ -36,6 +38,7 @@ def read_entailmentbank_proofs(path: str, is_train: bool) -> List[Example]:
             )
             data.append({"proof": proof})
         except InvalidProofStep:
+            print('invalid proof step reached')
             assert is_train
             num_invalid += 1
 

@@ -13,7 +13,7 @@ model:
   pos_weight: 128.0
 data:
   dataset: entailmentbank
-  batch_size: 128
+  batch_size: 32
   num_workers: 2
   max_num_premises: 4
   max_input_len: 256

@@ -135,8 +135,7 @@ class EntailmentWriter(pl.LightningModule):
         self.proof_search = proof_search
         self.oracle_prover = oracle_prover
         self.oracle_verifier = oracle_verifier
-        self.diversity_penalty = diversity_penalty
-        self.diversity_penalty /= 10.0
+        self.diversity_penalty = float(diversity_penalty)
         self.log_name = log_name
         if stepwise and verifier_weight > 0:
             assert verifier_weight <= 1.0
@@ -268,6 +267,7 @@ class EntailmentWriter(pl.LightningModule):
             output_scores=True,
             return_dict_in_generate=True,
         )
+
         output_text = self.tokenizer.batch_decode(
             output.sequences, skip_special_tokens=True
         )

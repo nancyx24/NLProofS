@@ -28,6 +28,7 @@ class EntailmentClassifier(pl.LightningModule):
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, model_max_length=max_input_len)
         self.encoder = AutoModel.from_pretrained(model_name)
         self.fc = nn.Linear(self.encoder.config.hidden_size, 1)
+        self.log_name = log_name
         self.metrics = {
             "train": {
                 "accuracy": BinaryAccuracy(),

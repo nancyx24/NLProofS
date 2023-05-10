@@ -1,0 +1,132 @@
+no change     /n/fs/nlp-abiramg/miniconda3/condabin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda-env
+no change     /n/fs/nlp-abiramg/miniconda3/bin/activate
+no change     /n/fs/nlp-abiramg/miniconda3/bin/deactivate
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.sh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/fish/conf.d/conda.fish
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/Conda.psm1
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/conda-hook.ps1
+no change     /n/fs/nlp-abiramg/miniconda3/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.csh
+no change     /u/abiramg/.bashrc
+No action taken.
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+Global seed set to 1
+Some weights of the model checkpoint at roberta-large were not used when initializing RobertaModel: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Multiprocessing is handled by SLURM.
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at ./prover_weights.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from checkpoint at ./prover_weights.ckpt
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 104 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+57 proofs loaded. 0 invalid ones removed.
+Validation: 0it [00:00, ?it/s]Validation:   0%|          | 0/15 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/15 [00:00<?, ?it/s]Validation DataLoader 0:   7%|▋         | 1/15 [00:38<09:02, 38.73s/it]Validation DataLoader 0:   7%|▋         | 1/15 [00:38<09:02, 38.73s/it]Validation DataLoader 0:  13%|█▎        | 2/15 [00:43<04:04, 18.84s/it]Validation DataLoader 0:  13%|█▎        | 2/15 [00:43<04:04, 18.84s/it]Validation DataLoader 0:  20%|██        | 3/15 [00:46<02:16, 11.38s/it]Validation DataLoader 0:  20%|██        | 3/15 [00:46<02:16, 11.38s/it]Validation DataLoader 0:  27%|██▋       | 4/15 [00:49<01:28,  8.07s/it]Validation DataLoader 0:  27%|██▋       | 4/15 [00:49<01:28,  8.07s/it]Validation DataLoader 0:  33%|███▎      | 5/15 [00:55<01:16,  7.62s/it]Validation DataLoader 0:  33%|███▎      | 5/15 [00:55<01:16,  7.62s/it]Validation DataLoader 0:  40%|████      | 6/15 [01:03<01:09,  7.68s/it]Validation DataLoader 0:  40%|████      | 6/15 [01:03<01:09,  7.68s/it]Validation DataLoader 0:  47%|████▋     | 7/15 [01:22<01:29, 11.19s/it]Validation DataLoader 0:  47%|████▋     | 7/15 [01:22<01:29, 11.19s/it]Validation DataLoader 0:  53%|█████▎    | 8/15 [01:27<01:06,  9.44s/it]Validation DataLoader 0:  53%|█████▎    | 8/15 [01:27<01:06,  9.44s/it]Validation DataLoader 0:  60%|██████    | 9/15 [01:37<00:56,  9.48s/it]Validation DataLoader 0:  60%|██████    | 9/15 [01:37<00:56,  9.48s/it]Validation DataLoader 0:  67%|██████▋   | 10/15 [01:43<00:42,  8.57s/it]Validation DataLoader 0:  67%|██████▋   | 10/15 [01:43<00:42,  8.57s/it]Validation DataLoader 0:  73%|███████▎  | 11/15 [01:47<00:28,  7.14s/it]Validation DataLoader 0:  73%|███████▎  | 11/15 [01:47<00:28,  7.14s/it]Validation DataLoader 0:  80%|████████  | 12/15 [01:59<00:25,  8.39s/it]Validation DataLoader 0:  80%|████████  | 12/15 [01:59<00:25,  8.39s/it]Validation DataLoader 0:  87%|████████▋ | 13/15 [02:08<00:17,  8.55s/it]Validation DataLoader 0:  87%|████████▋ | 13/15 [02:08<00:17,  8.55s/it]Validation DataLoader 0:  93%|█████████▎| 14/15 [02:19<00:09,  9.44s/it]Validation DataLoader 0:  93%|█████████▎| 14/15 [02:19<00:09,  9.44s/it]Validation DataLoader 0: 100%|██████████| 15/15 [02:22<00:00,  7.44s/it]Validation DataLoader 0: 100%|██████████| 15/15 [02:22<00:00,  7.44s/it]Validation results saved to /n/fs/nlp-abiramg/NLProofS/prover/lightning_logs/version_18974307/results_val.json and /n/fs/nlp-abiramg/NLProofS/prover/lightning_logs/version_18974307/results_val.tsv
+
+  0%|          | 0/57 [00:00<?, ?it/s][A100%|██████████| 57/57 [00:00<00:00, 2286.12it/s]
+Performance by depth:
+22 trees have depth 3
+	leaves: 0.5909090909090909	0.9061716061716062
+	steps: 0.0	0.07064147973238882
+	proof: 0.0	0.0
+22 trees have depth 4
+	leaves: 0.5909090909090909	0.9068476977567886
+	steps: 0.0	0.02813852813852814
+	proof: 0.0	0.0
+8 trees have depth 5
+	leaves: 0.625	0.9568903318903319
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+4 trees have depth 6
+	leaves: 0.75	0.9423076923076923
+	steps: 0.0	0.21805555555555556
+	proof: 0.0	0.0
+1 trees have depth 8
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+Performance by size:
+1 trees have size 6
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+12 trees have size 7
+	leaves: 0.5833333333333334	0.8510582010582012
+	steps: 0.0	0.07142857142857144
+	proof: 0.0	0.0
+5 trees have size 8
+	leaves: 0.8	0.9714285714285715
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+10 trees have size 9
+	leaves: 0.7	0.9666666666666666
+	steps: 0.0	0.03333333333333333
+	proof: 0.0	0.0
+3 trees have size 10
+	leaves: 0.3333333333333333	0.6931216931216931
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+6 trees have size 11
+	leaves: 0.6666666666666666	0.9576719576719577
+	steps: 0.0	0.10317460317460318
+	proof: 0.0	0.0
+4 trees have size 12
+	leaves: 0.75	0.9833333333333334
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+2 trees have size 13
+	leaves: 0.0	0.7636363636363637
+	steps: 0.0	0.1818181818181818
+	proof: 0.0	0.0
+4 trees have size 14
+	leaves: 0.0	0.9024864024864026
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+1 trees have size 15
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+1 trees have size 16
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+2 trees have size 17
+	leaves: 0.5	0.8846153846153846
+	steps: 0.0	0.325
+	proof: 0.0	0.0
+3 trees have size 18
+	leaves: 0.6666666666666666	0.9696969696969697
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+1 trees have size 22
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+1 trees have size 23
+	leaves: 1.0	1.0
+	steps: 0.0	0.22222222222222224
+	proof: 0.0	0.0
+1 trees have size 31
+	leaves: 1.0	1.0
+	steps: 0.0	0.0
+	proof: 0.0	0.0
+Validation DataLoader 0: 100%|██████████| 15/15 [02:22<00:00,  9.49s/it]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+     Validate metric           DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ExactMatch_leaves_val     0.6140350877192983
+  ExactMatch_proof_val              0.0
+  ExactMatch_steps_val              0.0
+      F1_leaves_val         0.9177329493118966
+      F1_proof_val                  0.0
+      F1_steps_val          0.05342776132249817
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Configuration: 
+ Namespace(config=None, subcommand='validate', validate=Namespace(config=[Path_fsr(gsm_task1.yaml, cwd=/n/fs/nlp-abiramg/NLProofS/prover)], seed_everything=1, trainer=Namespace(logger=True, checkpoint_callback=None, enable_checkpointing=True, callbacks=[Namespace(class_path='pytorch_lightning.callbacks.LearningRateMonitor', init_args=Namespace(logging_interval='step', log_momentum=False))], default_root_dir=None, gradient_clip_val=0.5, gradient_clip_algorithm=None, process_position=0, num_nodes=1, num_processes=None, devices=None, gpus=1, auto_select_gpus=False, tpu_cores=None, ipus=None, log_gpu_memory=None, progress_bar_refresh_rate=None, enable_progress_bar=True, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=10, fast_dev_run=False, accumulate_grad_batches=16, max_epochs=500, min_epochs=None, max_steps=-1, min_steps=None, max_time=None, limit_train_batches=None, limit_val_batches=None, limit_test_batches=None, limit_predict_batches=None, val_check_interval=None, flush_logs_every_n_steps=None, log_every_n_steps=5, accelerator=None, strategy=None, sync_batchnorm=False, precision=32, enable_model_summary=True, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, resume_from_checkpoint=None, profiler=None, benchmark=None, deterministic=False, reload_dataloaders_every_n_epochs=0, auto_lr_find=False, replace_sampler_ddp=True, detect_anomaly=False, auto_scale_batch_size=False, prepare_data_per_node=None, plugins=None, amp_backend='native', amp_level=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False, terminate_on_nan=None), model=Namespace(stepwise=True, max_num_steps=20, model_name='t5-large', lr=0.0001, warmup_steps=1000, num_beam_groups=1, num_beams=10, topk=10, proof_search=True, verifier_weight=0.5, verifier_ckpt='../verifier/verifier_weights.ckpt', oracle_prover=False, oracle_verifier=False, dataset='entailmentbank', max_input_len=1024), data=Namespace(dataset='entailmentbank', sample_goal='hypothesis', max_input_len=1024, max_output_len=64, batch_size=4, num_workers=2, path_train='../data/train_gsm8k.jsonl', path_val='../data/dev_gsm8k.jsonl', path_test='../data/test_gsm8k.jsonl', subtree_proved_prob=0.5, subtree_proved_all_or_none=True, model_name='t5-large', stepwise=True), ckpt_path='./prover_weights.ckpt', verbose=True))

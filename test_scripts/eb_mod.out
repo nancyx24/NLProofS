@@ -1,0 +1,17 @@
+no change     /n/fs/nlp-abiramg/miniconda3/condabin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda-env
+no change     /n/fs/nlp-abiramg/miniconda3/bin/activate
+no change     /n/fs/nlp-abiramg/miniconda3/bin/deactivate
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.sh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/fish/conf.d/conda.fish
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/Conda.psm1
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/conda-hook.ps1
+no change     /n/fs/nlp-abiramg/miniconda3/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.csh
+no change     /u/abiramg/.bashrc
+No action taken.
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+Global seed set to 1
+slurmstepd: error: *** JOB 18973337 ON node204 CANCELLED AT 2023-05-03T23:31:26 ***

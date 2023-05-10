@@ -1,0 +1,162 @@
+no change     /n/fs/nlp-abiramg/miniconda3/condabin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda
+no change     /n/fs/nlp-abiramg/miniconda3/bin/conda-env
+no change     /n/fs/nlp-abiramg/miniconda3/bin/activate
+no change     /n/fs/nlp-abiramg/miniconda3/bin/deactivate
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.sh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/fish/conf.d/conda.fish
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/Conda.psm1
+no change     /n/fs/nlp-abiramg/miniconda3/shell/condabin/conda-hook.ps1
+no change     /n/fs/nlp-abiramg/miniconda3/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /n/fs/nlp-abiramg/miniconda3/etc/profile.d/conda.csh
+no change     /u/abiramg/.bashrc
+No action taken.
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+Global seed set to 1
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Multiprocessing is handled by SLURM.
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+   | Name                    | Type                   | Params
+--------------------------------------------------------------------
+0  | encoder                 | RobertaModel           | 124 M 
+1  | fc                      | Linear                 | 769   
+2  | accuracy_train          | BinaryAccuracy         | 0     
+3  | average_precision_train | BinaryAveragePrecision | 0     
+4  | precision_train         | BinaryPrecision        | 0     
+5  | recall_train            | BinaryRecall           | 0     
+6  | specificity_train       | BinarySpecificity      | 0     
+7  | f1_train                | BinaryF1Score          | 0     
+8  | accuracy_val            | BinaryAccuracy         | 0     
+9  | average_precision_val   | BinaryAveragePrecision | 0     
+10 | precision_val           | BinaryPrecision        | 0     
+11 | recall_val              | BinaryRecall           | 0     
+12 | specificity_val         | BinarySpecificity      | 0     
+13 | f1_val                  | BinaryF1Score          | 0     
+--------------------------------------------------------------------
+124 M     Trainable params
+0         Non-trainable params
+124 M     Total params
+498.586   Total estimated model params size (MB)
+SLURM auto-requeueing enabled. Setting signal handlers.
+#positives: 8819
+#pseudo-negatives: 84204
+#positives: 601
+#pseudo-negatives: 0
+Sanity Checking: 0it [00:00, ?it/s]/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 40 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:13<00:13, 13.41s/it]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:13<00:13, 13.41s/it]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:14<00:00,  6.11s/it]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:14<00:00,  6.11s/it]                                                                           /n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 40 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: 0it [00:00, ?it/s]Logging to /n/fs/nlp-abiramg/NLProofS/verifier/lightning_logs/version_18964761
+Training:   0%|          | 0/731 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/731 [00:00<?, ?it/s] Epoch 0:   0%|          | 1/731 [00:04<51:59,  4.27s/it]Epoch 0:   0%|          | 1/731 [00:04<51:59,  4.27s/it]Epoch 0:   0%|          | 1/731 [00:04<52:21,  4.30s/it, loss=7.88, v_num=1.9e+7]Traceback (most recent call last):
+  File "/n/fs/nlp-abiramg/NLProofS/verifier/main.py", line 21, in <module>
+    main()
+  File "/n/fs/nlp-abiramg/NLProofS/verifier/main.py", line 16, in main
+    cli = CLI(EntailmentClassifier, EntailmentDataModule, save_config_overwrite=True)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/utilities/cli.py", line 566, in __init__
+    self._run_subcommand(self.subcommand)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/utilities/cli.py", line 837, in _run_subcommand
+    fn(**fn_kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 768, in fit
+    self._call_and_handle_interrupt(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 721, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 809, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1234, in _run
+    results = self._run_stage()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1321, in _run_stage
+    return self._run_train()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1351, in _run_train
+    self.fit_loop.run()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 268, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1593, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/core/lightning.py", line 1644, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/optim/adamw.py", line 100, in step
+    loss = closure()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1763, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 333, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/n/fs/nlp-abiramg/NLProofS/verifier/../verifier/model.py", line 72, in training_step
+    logit = self(batch["input_ids"], batch["attention_mask"])
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/NLProofS/verifier/../verifier/model.py", line 62, in forward
+    features = self.encoder(input_ids, attention_mask).pooler_output
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/transformers/models/roberta/modeling_roberta.py", line 852, in forward
+    encoder_outputs = self.encoder(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/transformers/models/roberta/modeling_roberta.py", line 527, in forward
+    layer_outputs = layer_module(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/transformers/models/roberta/modeling_roberta.py", line 411, in forward
+    self_attention_outputs = self.attention(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/transformers/models/roberta/modeling_roberta.py", line 338, in forward
+    self_outputs = self.self(
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/transformers/models/roberta/modeling_roberta.py", line 268, in forward
+    attention_probs = self.dropout(attention_probs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/modules/dropout.py", line 58, in forward
+    return F.dropout(input, self.p, self.training, self.inplace)
+  File "/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/torch/nn/functional.py", line 1279, in dropout
+    return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)
+RuntimeError: CUDA out of memory. Tried to allocate 50.00 MiB (GPU 0; 11.17 GiB total capacity; 9.44 GiB already allocated; 10.25 MiB free; 10.74 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Epoch 0:   0%|          | 1/731 [00:08<1:45:28,  8.67s/it, loss=7.88, v_num=1.9e+7]

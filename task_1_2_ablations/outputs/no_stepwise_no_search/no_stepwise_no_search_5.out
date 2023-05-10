@@ -1,0 +1,6 @@
+/var/spool/slurmd/job19007051/slurm_script: line 15: conda: command not found
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+/n/fs/nlp-abiramg/miniconda3/envs/nlproofs/lib/python3.9/site-packages/ete3-3.1.2-py3.7.egg/ete3/evol/parser/codemlparser.py:221: SyntaxWarning: "is" with a literal. Did you mean "=="?
+usage: main.py [-h] [-c CONFIG] [--print_config [=flags]]
+               {fit,validate,test,predict,tune} ...
+main.py: error: Configuration check failed :: Key "test.model.diversity_penalty" is required but not included in config object or its value is None.

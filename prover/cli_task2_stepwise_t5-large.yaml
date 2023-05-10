@@ -19,7 +19,9 @@ model:
   lr: 5e-5
   warmup_steps: 1000
   model_name: t5-large
-  num_beams: 10
+  num_beam_groups: 1
+  diversity_penalty: 0
+  num_beams: 12
   topk: 10
   verifier_ckpt: null
   verifier_weight: 0.0
